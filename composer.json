@@ -1,0 +1,23 @@
+{
+    "name": "advanta_africa/sms_api",
+    "description": "A PHP package for sending SMS using Advanta Africa APIs",
+    "type": "library",
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AdvantaAfrica\\SmsApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Harold Kerry",
+            "email": "haroldkerry@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
