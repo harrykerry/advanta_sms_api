@@ -83,13 +83,13 @@ $response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx'], 'Your message here', 't
 To send an SMS to a hashed mobile number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsGet('xxxxxxxxxx', 'Your message here', 'optional_time_in_string', 'true');
+$response = $smsApi->sendSingleSmsGet('xxxxxxxxxx', 'Your message here', 'Your message here', 'true');
 ```
 
 To send to a regular number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsGet('07xxxxxxxxxx', 'Your message here', 'optional_time_in_string',null);
+$response = $smsApi->sendSingleSmsGet('07xxxxxxxxxx', 'Your message here', 'Your message here',null);
 ```
 
 ### Sending Bulk SMS
