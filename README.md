@@ -39,25 +39,25 @@ To use the package, you need to provide the API credentials and the URL for the 
 use AdvantaAfrica\SmsApi\SmsApi;
 
 // Create an instance for sending SMS, OTP, and getting balance or delivery reports
-$smsApi = new SmsApi('endpoint', 'apiKey', partnerId, 'senderId');
+$smsApi = new SmsApi('endpoint', 'apiKey', 'partnerId', 'senderId');
 ```
 
 ### Sending SMS
 
-To send a single SMS, you can use the `sendSingleSmsPost` method for POST requests or `sendSingleSmsGet` for GET requests. Both methods accept mobile numbers and a message. Optionally, you can pass time to schedule messages and a hashed key = true when sending to hashed numbers.
+To send a single SMS, you can use the `sendSingleSmsPost` method for POST requests or `sendSingleSmsGet` for GET requests. Both methods accept mobile numbers and a message. Optionally, you can pass timeToSend to schedule messages (or pass null if not being scheduled) and a hashed key = true when sending to hashed numbers.
 
 #### POST Example
 
-You can pass a single number or multiple numbers as an array (Numbers can start with 0 or 254):
+You can pass a single number or multiple numbers as an array (Numbers can start with 07, 0 or 254):
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx', '07xxxxxxxxx'], 'This is a test SMS', 'optional_time_in_string', null);
+$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx', '07xxxxxxxxx'], 'Your message here', 'timeToSend', null);
 ```
 
 #### GET Example
 
 ```php
-$response = $smsApi->sendSingleSmsGet('07xxxxxxxxxxx', 'This is a test SMS','optional_time_in_string', null);
+$response = $smsApi->sendSingleSmsGet('07xxxxxxxxxxx', 'Your message here','timeToSend', null);
 ```
 
 ### Send OTP Endpoint usage
@@ -69,13 +69,13 @@ When using the otp endpoint, you can use the same `sendSingleSmsPost` method for
 To send an SMS to a hashed mobile number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['xxxxxxxxxx'], 'Your OTP code is 123456', 'optional_time_in_string', 'true');
+$response = $smsApi->sendSingleSmsPost(['xxxxxxxxxx'], 'Your message here', 'timeToSend', 'true');
 ```
 
 To send to a regular number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx'], 'Your message here', 'optional_time_in_string',null);
+$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx'], 'Your message here', 'timeToSend',null);
 ```
 
 #### GET Example
@@ -83,7 +83,7 @@ $response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx'], 'Your message here', 'o
 To send an SMS to a hashed mobile number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsGet('xxxxxxxxxx', 'Your OTP code is 123456', 'optional_time_in_string', 'true');
+$response = $smsApi->sendSingleSmsGet('xxxxxxxxxx', 'Your message here', 'optional_time_in_string', 'true');
 ```
 
 To send to a regular number using OTP endpoint:
@@ -163,7 +163,7 @@ $deliveryResponse = $smsApi->getDeliveryStatusGet('messageId');
 - For the **Send SMS** and **Send OTP** endpoints, both use the same methods (`sendSingleSmsPost` and `sendSingleSmsGet`), but they have different URLs and may require a hashed key for SMS requests sent to a hashed mobile number.
 - When scheduling messages, pass the time as a string that can be converted to a Unix timestamp. If not needed, simply omit it.
 - Ensure that the `partnerId` is always numeric.
-- Mobile numbers can start with 254 or 07
+- Mobile numbers can start with 254,07 or 0 for new prefixes
 - When sending to hashed numbers, make sure the number before being hashed starts with 254xxxxxxxxxx
 
 ## Author
