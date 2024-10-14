@@ -23,7 +23,7 @@ class SendSms extends BaseFile
 
 
         $queryParams = [
-            'apiKey' => $this->apiKey,
+            'apikey' => $this->apiKey,
             'partnerID' => $this->partnerId,
             'shortcode' => $this->senderId,
             'mobile' => $msisdn,
@@ -64,7 +64,7 @@ class SendSms extends BaseFile
         $msisdnString = implode(',', $msisdn);
 
         $payload = [
-            'apiKey' => $this->apiKey,
+            'apikey' => $this->apiKey,
             'partnerID' => $this->partnerId,
             'shortcode' => $this->senderId,
             'mobile' => $msisdnString,
