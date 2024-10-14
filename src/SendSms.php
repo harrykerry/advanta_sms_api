@@ -18,17 +18,21 @@ class SendSms extends BaseFile
      * @throws GuzzleException If the request fails.
      */
 
-    public function sendSingleSmsGet(string $msisdn, string $message, string $hashed = null): string
+    public function sendSingleSmsGet(string $msisdn, string $message,string $time = null, string $hashed = null): string
     {
 
 
         $queryParams = [
-            'apiKey' => $this->apiKey,
+            'apikey' => $this->apiKey,
             'partnerID' => $this->partnerId,
             'shortcode' => $this->senderId,
             'mobile' => $msisdn,
             'message' => $message,
         ];
+
+        if ($time !== null) {
+            $queryParams['timeToSend'] = $time;
+        }
 
         if ($hashed !== null) {
             $queryParams['hashed'] = $hashed;
@@ -60,7 +64,7 @@ class SendSms extends BaseFile
         $msisdnString = implode(',', $msisdn);
 
         $payload = [
-            'apiKey' => $this->apiKey,
+            'apikey' => $this->apiKey,
             'partnerID' => $this->partnerId,
             'shortcode' => $this->senderId,
             'mobile' => $msisdnString,
