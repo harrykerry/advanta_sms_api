@@ -18,7 +18,7 @@ class SendSms extends BaseFile
      * @throws GuzzleException If the request fails.
      */
 
-    public function sendSingleSmsGet(string $msisdn, string $message, string $hashed = null): string
+    public function sendSingleSmsGet(string $msisdn, string $message,string $time = null, string $hashed = null): string
     {
 
 
@@ -29,6 +29,10 @@ class SendSms extends BaseFile
             'mobile' => $msisdn,
             'message' => $message,
         ];
+
+        if ($time !== null) {
+            $queryParams['timeToSend'] = $time;
+        }
 
         if ($hashed !== null) {
             $queryParams['hashed'] = $hashed;
