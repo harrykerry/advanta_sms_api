@@ -13,7 +13,7 @@ class BaseFile
     protected $client;
     protected $senderId;
 
-    public function __construct(string $url, string $apiKey = null, int $partnerId = null, string $senderId = null)
+    public function __construct(string $url, string $apiKey, int $partnerId, string $senderId = null)
     {
         $this->url = $url;
         $this->apiKey = $apiKey;
