@@ -61,13 +61,12 @@ class SendSms extends BaseFile
     public function sendSingleSmsPost(string $msisdn, string $message, string $time = null, string $hashed = null): string
     {
 
-        $msisdnString = implode(',', $msisdn);
-
+     
         $payload = [
             'apikey' => $this->apiKey,
             'partnerID' => $this->partnerId,
             'shortcode' => $this->senderId,
-            'mobile' => $msisdnString,
+            'mobile' => $msisdn,
             'message' => $message,
         ];
 
