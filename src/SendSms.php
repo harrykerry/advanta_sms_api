@@ -58,7 +58,7 @@ class SendSms extends BaseFile
      * @throws GuzzleException If the request fails.
      */
 
-    public function sendSingleSmsPost(array $msisdn, string $message, string $time = null, string $hashed = null): string
+    public function sendSingleSmsPost(string $msisdn, string $message, string $time = null, string $hashed = null): string
     {
 
         $msisdnString = implode(',', $msisdn);

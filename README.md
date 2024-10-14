@@ -48,10 +48,10 @@ To send a single SMS, you can use the `sendSingleSmsPost` method for POST reques
 
 #### POST Example
 
-You can pass a single number or multiple numbers as an array (Numbers can start with 07, 0 or 254):
+You can pass a single number or a comma separated set of numbers  (Numbers can start with 07, 0 or 254):
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx', '07xxxxxxxxx'], 'Your message here', 'timeToSend', null);
+$response = $smsApi->sendSingleSmsPost('07xxxxxxxxxx,07xxxxxxxxx', 'Your message here', 'timeToSend', null);
 ```
 
 #### GET Example
