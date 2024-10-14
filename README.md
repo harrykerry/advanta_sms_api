@@ -69,13 +69,13 @@ When using the otp endpoint, you can use the same `sendSingleSmsPost` method for
 To send an SMS to a hashed mobile number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['xxxxxxxxxx'], 'Your message here', 'timeToSend', 'true');
+$response = $smsApi->sendSingleSmsPost('xxxxxxxxx', 'Your message here', 'timeToSend', 'true');
 ```
 
 To send to a regular number using OTP endpoint:
 
 ```php
-$response = $smsApi->sendSingleSmsPost(['07xxxxxxxxxx'], 'Your message here', 'timeToSend',null);
+$response = $smsApi->sendSingleSmsPost('07xxxxxxxxxx', 'Your message here', 'timeToSend',null);
 ```
 
 #### GET Example
