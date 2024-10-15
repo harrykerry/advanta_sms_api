@@ -79,7 +79,7 @@ class SendSms extends BaseFile
         }
 
         $response = $this->client->post($this->url, [
-            'json' => [$payload]
+            'json' => $payload
         ]);
 
         return $response->getBody()->getContents();
